@@ -1,4 +1,4 @@
-```
+```java
   public class Solution {
     public static int zamnTriplets(int n, int[] a) {
         // Write your code here
