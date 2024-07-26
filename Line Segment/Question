@@ -1,0 +1,77 @@
+ Line Segment
+Moderate
+0/80
+Problem statement
+Consider a one-dimensional world represented by a number line. You are positioned at a point 'K' on this number line. At some moment, 'N' line segments fall onto the number line. The 'i'-th line segment covers all points from 'L[i]' to 'R[i]' inclusive.
+
+
+
+Define 'f(x)' as the number of line segments that cover the point 'x'. For example, if there are two line segments '[1, 3]' and '[3, 5]', then' f(1) = f(2) = f(4) = f(5) = 1', 'f(3 )= 2', and 'f(x) = 0' for all other points 'x'.
+
+
+
+Your task is to determine whether it is possible to remove some line segments (possibly, '0') so that point 'K' is covered by the maximum number of remaining segments. Formally, after removing some segments, the value of 'f(K)' should be strictly greater than 'f(y)' for all 'y ≠ K' 'f(y) < f(K).
+
+
+
+If it's possible then return '1'. Otherwise, return '0'.
+
+
+
+Example:
+'N' = 3
+'K' = 3
+'L' = [1, 2, 3]
+'R' = [3, 3, 5]
+
+Here 'f(1) = 1', f(2) = 2', 'f(3) = 3', 'f(4) = f(5) = 1'. And for every other 'x' the value of 'f(x)' is zero.
+
+Here, 'f(3)' (f(K)) is already strictly greater than any other 'f(y)', so there is no need to remove any line segment.
+
+So, the answer is '1'.
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= T <= 10
+1 <= N <= 10^5
+1 <= K <= 10^5
+1 <= L[i] <= 10^5
+L[i] <= R[i] <= 10^5
+
+Time Limit: 1 second
+Sample Input 1:
+2
+4 2
+1 1 9 8 
+7 1 9 11 
+3 6
+5 6 2 
+7 12 6 
+Sample Output 1:
+0
+1
+Explanation Of Sample Input 1:
+For test case 1:
+We have '4' line segments and 'K = 2'.
+The segments are: '[1,1], [9,8], [7,1], [9,11]'
+Point' 2' is covered by only one segment: '[7,1]'.
+Therefore, it's impossible to make f(2) strictly greater than all other f(x).
+So, the answer is '0'.
+
+
+For test case 2:
+We have '3' line segments and 'K = 6'. 
+The segments are: '[5,6], [2,7], and [6,12]'. Initially, the coverage for each point is as follows:' f(1) = 0', 'f(2) to f(4) = 1', 'f(5) = 2', 'f(6) = 3', 'f(7) = 2', and 'f(8) to f(12) = 1'. 
+We can see that 'f(6') is already '3', which is greater than all other points. 
+No removal of segments is needed to achieve the desired condition. 
+The answer is 1, indicating it's possible to have 'f(6)' strictly greater than all other 'f(x)'.
+Sample Input 2:
+2
+7 9
+15 9 5 9 6 21 7 
+21 24 19 15 9 24 22 
+7 6
+13 13 6 15 2 4 5 
+15 13 16 20 24 16 6 
+Sample Output 2:
+1
+1
